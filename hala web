@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хала Кэмп — глэмпинг на Камчатке у Тихого океана</title>
+  <meta name="description" content="Глэмпинг Хала Кэмп на Халактырском пляже: домики у океана, баня Хала Пар, серфинг и отдых на Камчатке с видом на вулканы.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#145f65">
+  <link rel="canonical" href="https://halacamp-kamchatka.ru/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Хала Кэмп — глэмпинг на Камчатке у Тихого океана">
+  <meta property="og:description" content="Домики у океана, баня Хала Пар, серфинг и отдых на Халактырском пляже.">
+  <meta property="og:url" content="https://halacamp-kamchatka.ru/">
+  <meta property="og:image" content="https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG">
+  <meta property="og:image:alt" content="Хала Кэмп на Халактырском пляже у Тихого океана">
+  <meta property="og:site_name" content="Хала Кэмп">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Хала Кэмп — глэмпинг на Камчатке у Тихого океана">
+  <meta name="twitter:description" content="Домики у океана, баня Хала Пар, серфинг и отдых на Халактырском пляже.">
+  <meta name="twitter:image" content="https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG">
+  <meta name="twitter:image:alt" content="Хала Кэмп на Халактырском пляже у Тихого океана">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/images-web/logo/logo.png">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preload" as="image" href="/images-web/hero/111%20IMG_0398.JPG" fetchpriority="high">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Хала Кэмп",
+          "url": "https://halacamp-kamchatka.ru/",
+          "logo": "https://halacamp-kamchatka.ru/images-web/logo/logo.svg",
+          "image": "https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG",
+          "description": "Глэмпинг Хала Кэмп на Халактырском пляже: домики у океана, баня Хала Пар, серфинг и отдых на Камчатке с видом на вулканы.",
+          "telephone": ["+79247917799", "+79638323456", "+79147852219"]
+        },
+        {
+          "@type": ["LodgingBusiness", "LocalBusiness"],
+          "name": "Хала Кэмп",
+          "url": "https://halacamp-kamchatka.ru/",
+          "image": [
+            "https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG",
+            "https://halacamp-kamchatka.ru/images-web/hala1/hala1%20-%20111.jpg",
+            "https://halacamp-kamchatka.ru/images-web/bath/Hala%20Par%20(1).jpg"
+          ],
+          "description": "Премиальный глэмпинг на Камчатке у Тихого океана с проживанием, баней у океана и серфингом на Халактырском пляже.",
+          "telephone": ["+79247917799", "+79638323456", "+79147852219"],
+          "priceRange": "₽₽₽",
+          "checkinTime": "14:00",
+          "checkoutTime": "12:00",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Халактырский пляж, Камчатка",
+            "addressCountry": "RU"
+          },
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Проживание", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Баня", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Серфинг", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Кухня", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Душ", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Вид на океан", "value": true }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Хала Кэмп", "item": "https://halacamp-kamchatka.ru/" },
+            { "@type": "ListItem", "position": 2, "name": "Глэмпинг на Камчатке", "item": "https://halacamp-kamchatka.ru/#about" },
+            { "@type": "ListItem", "position": 3, "name": "Размещение и услуги", "item": "https://halacamp-kamchatka.ru/#stay" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Где находится глэмпинг Хала Кэмп?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Хала Кэмп находится на Халактырском пляже на Камчатке, рядом с Тихим океаном и видами на вулканы."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какие варианты размещения есть в Хала Кэмп?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "В Хала Кэмп доступны Хала-1, Хала-2, Хала Глэмп и Хала Кемпер — разные форматы отдыха у океана на Камчатке."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Есть ли баня у океана?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, в Хала Кэмп есть баня Хала Пар — баня у океана с уединённым форматом и групповыми сеансами."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Можно ли заняться серфингом?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Да, гости могут выбрать серфинг на Камчатке в групповом, парном или индивидуальном формате."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Как забронировать отдых?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Оставьте заявку на сайте, напишите в WhatsApp или позвоните по указанным телефонам."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Во сколько заезд и выезд?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Заезд в Хала Кэмп начинается после 14:00, выезд — до 12:00."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "ImageObject",
+          "name": "Хала Кэмп — глэмпинг на Камчатке у Тихого океана",
+          "contentUrl": "https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG",
+          "url": "https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG",
+          "caption": "Хала Кэмп на Халактырском пляже — домики у океана, баня у океана и отдых на Камчатке."
+        }
+      ]
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ocean: "#145f65",
+            oceanSoft: "#1f7a81",
+            oceanDeep: "#113f44",
+            sand: "#f5efe7",
+            sandDark: "#d8cfc2",
+            ember: "#f58e1f",
+            ink: "#182226",
+            mist: "#6a7f83"
+          },
+          fontFamily: {
+            display: ["Arial", "Helvetica Neue", "Helvetica", "sans-serif"],
+            body: ["Segoe UI", "Arial", "sans-serif"]
+          },
+          boxShadow: {
+            card: "0 14px 36px rgba(17, 63, 68, 0.12)",
+            soft: "0 8px 24px rgba(17, 63, 68, 0.08)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5efe7;
+      color: #182226;
+      overflow-x: hidden;
+    }
+
+    .hero-overlay {
+      background:
+        linear-gradient(90deg, rgba(16, 28, 34, 0.8) 0%, rgba(16, 28, 34, 0.58) 34%, rgba(16, 28, 34, 0.2) 62%, rgba(16, 28, 34, 0.34) 100%),
+        linear-gradient(180deg, rgba(245, 142, 31, 0.08) 0%, rgba(11, 21, 27, 0.28) 38%, rgba(11, 21, 27, 0.72) 100%);
+    }
+
+    .hero-image {
+      object-position: center 68%;
+    }
+
+    .hero-shell {
+      min-height: 100svh;
+    }
+
+    .card-gradient {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.92));
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .anchor-offset {
+      scroll-margin-top: 110px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-image {
+        object-position: 58% 72%;
+      }
+
+      .hero-shell {
+        min-height: 118svh;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <noscript>
+    <section style="max-width: 960px; margin: 0 auto; padding: 32px 20px; font-family: 'Segoe UI', Arial, sans-serif; color: #182226;">
+      <h1 style="margin: 0 0 12px; font-size: 32px;">Хала Кэмп</h1>
+      <p style="margin: 0 0 14px; line-height: 1.6;">
+        Глэмпинг на Халактырском пляже на Камчатке. Для корректной работы галереи и формы бронирования нужен JavaScript.
+      </p>
+      <p style="margin: 0 0 8px; line-height: 1.6;">
+        Бронирование в WhatsApp: <a href="https://wa.me/79638323456">+7 963 832-34-56</a>
+      </p>
+      <p style="margin: 0; line-height: 1.6;">
+        Телефоны: <a href="tel:+79247917799">+7 924 791-77-99</a>, <a href="tel:+79638323456">+7 963 832-34-56</a>, <a href="tel:+79147852219">+7 914 785-22-19</a>
+      </p>
+    </section>
+  </noscript>
+
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
+
