@@ -92,6 +92,9 @@ const galleryData = [
   { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80' }
 ];
 
+// Global gallery index
+var currentImageIdx = 0;
+
 // Global dynamic dictionary for RU, EN, ZH translation
 const dictionary = {
   en: {
@@ -151,6 +154,10 @@ const dictionary = {
     'stay-title': 'Choose Your Perfect Lodge by the Ocean',
     'stay-desc': 'We have designed diverse accommodation formats that combine close proximity to the roaring Pacific Ocean with the cozy refinement of a luxury wilderness hotel.',
     'stay-equip-label': 'Lodge Amenities:',
+    'stay-1-badge': 'POPULAR',
+    'stay-2-badge': 'NEW',
+    'stay-3-badge': 'NATURE CLOSE',
+    'stay-4-badge': 'FREEDOM SPIRIT',
     'stay-equip-guests': '2+2 guests',
     'stay-equip-guests-2': '2 guests',
     'stay-equip-kitchen': 'Equipped kitchen',
@@ -342,6 +349,10 @@ const dictionary = {
     'stay-title': '为您寻找在世界尽头的温暖居所',
     'stay-desc': '我们倾心设计了多种不同维度的特色住宿空间，将太平洋的狂野与五星级全景奢华木屋的精致温暖完美相融。',
     'stay-equip-label': '客房高端配置：',
+    'stay-1-badge': '人气推荐',
+    'stay-2-badge': '新品力推',
+    'stay-3-badge': '亲近自然',
+    'stay-4-badge': '自由之魂',
     'stay-equip-guests': '可容纳 2-4 位贵宾',
     'stay-equip-guests-2': '可容纳 2 位贵宾',
     'stay-equip-kitchen': '配备齐全的独立厨房',
@@ -475,6 +486,201 @@ const dictionary = {
     'success-modal-desc': '亲爱的贵宾！我们已成功收到您在所选日期的度假别墅预订意向单。',
     'success-modal-sub': '营地私人管家将在 15 分钟内通过 WhatsApp 与您取得联系，核对预订细节与服务需求。',
     'success-modal-close': '非常棒，静候来电！'
+  },
+  ru: {
+    // Nav links
+    'nav-stay': 'РАЗМЕЩЕНИЕ',
+    'nav-bath': 'БАНЯ ХАЛА ПАР',
+    'nav-surfing': 'СЕРФИНГ',
+    'nav-gallery': 'ГАЛЕРЕЯ',
+    'nav-faq': 'ВОПРОСЫ',
+    'nav-contact': 'КОНТАКТЫ',
+    'cta-booking': 'Забронировать',
+    'drawer-lang-label': 'Язык / Language',
+    'footer-lang-label': 'Язык сайта / Site Language',
+
+    // Hero
+    'hero-badge': 'Премиум отдых у Тихого океана',
+    'hero-title': 'Хала Кэмп — премиальный глэмпинг на Камчатке',
+    'hero-desc': 'Погрузитесь в дикую природу Камчатки на Халактырском пляже. Уютные домики, расслабляющая баня у самой воды, занятия серфингом и незабываемый шум океанского прибоя.',
+    'hero-cta-stay': 'Выбрать домик',
+    'hero-cta-wa': 'WhatsApp консультация',
+    'hero-scroll-indicator': 'Листайте вниз',
+
+    // About
+    'about-badge': 'О нашем месте силы',
+    'about-title': 'Там, где рождается рассвет России',
+    'about-desc-1': 'Халактырский пляж славится своим уникальным вулканическим песком угольно-черного цвета. Это место, где великий Тихий океан с могучим шумом встречается со скалистыми берегами Камчатки.',
+    'about-desc-2': 'В глэмпинге «Хала Кэмп» мы создали комфорт премиального отеля посреди этой нетронутой цивилизацией стихии. Здесь вы можете просыпаться под крики чаек, созерцать дымящиеся вершины вулканов за чашкой ароматного кофе и чувствовать абсолютное единение со Вселенной.',
+    'about-stat-1-title': '100%',
+    'about-stat-1-desc': 'Экологичность материалов',
+    'about-stat-2-title': '50 м',
+    'about-stat-2-desc': 'Расстояние до океана',
+    'about-stat-3-title': '24/7',
+    'about-stat-3-desc': 'Администратор и Wi-Fi',
+    'about-img-tag-1': 'Скандинавский минимализм',
+    'about-img-tag-2': 'Тихий Океан',
+    'about-img-tag-3': 'Баня Хала Пар',
+    'about-img-tag-4': 'Горячий пар у океана',
+
+    // Service items
+    'services-badge': 'Безупречный сервис',
+    'services-title': 'Всё для вашего комфорта',
+    'service-1-title': 'Starlink Wi-Fi',
+    'service-1-desc': 'Всегда на связи на краю земли',
+    'service-2-title': 'Своя кухня',
+    'service-2-desc': 'Плита, посуда и холодильник',
+    'service-3-title': 'Горячий душ',
+    'service-3-desc': 'Индивидуальный санузел',
+    'service-4-title': 'Мангал-зона',
+    'service-4-desc': 'Костровые чаши у домиков',
+    'service-5-title': 'Вид на вулканы',
+    'service-5-desc': 'Панорамные террасы',
+    'service-6-title': 'Все удобства',
+    'service-6-desc': 'Косметика, полотенца, белье',
+
+    // Accommodations
+    'stay-badge': 'Варианты проживания',
+    'stay-title': 'Выберите ваш идеальный лодж у океана',
+    'stay-desc': 'Мы разработали разнообразные форматы размещения, сочетающие близость к первозданной стихии Тихого океана и уют премиального загородного отеля.',
+    'stay-equip-label': 'Оснащение лоджа:',
+    'stay-equip-guests': '2+2 гостя',
+    'stay-equip-guests-2': '2 гостя',
+    'stay-equip-kitchen': 'Кухня с техникой',
+    'stay-equip-shower': 'Душевая кабина',
+    'stay-equip-bed': 'Ортопедический матрас',
+    'stay-equip-minibar': 'Мини-бар',
+    'stay-equip-terrace': 'Собственная терраса',
+    'stay-equip-fire': 'Зона для костра',
+    'stay-equip-guests-glamp': '2-3 гостя',
+    'stay-equip-heated': 'Подогреваемая кровать',
+    'stay-equip-decor': 'Шенилл-декор',
+    'stay-equip-common': 'Общая зона кухни',
+    'stay-equip-compact-kitchen': 'Компактная кухня',
+    'stay-equip-integrated-shower': 'Интегрированный душ',
+    'stay-equip-autonomous': 'Автономное тепло',
+
+    'stay-1-badge': 'Популярно',
+    'stay-1-title': 'Хала-1 (Премиум лодж)',
+    'stay-1-desc': 'Просторный и дизайнерский домик с панорамным остеклением и террасой. Идеален для комфортного проживания с видом на набегающие волны.',
+    'stay-1-price': 'от 18 000 ₽ / сутки',
+    'stay-1-btn': 'Забронировать этот лодж',
+
+    'stay-2-badge': 'Новинка',
+    'stay-2-title': 'Хала-2 (Романтик лодж)',
+    'stay-2-desc': 'Уютный деревянный домик с теплыми интерьерами из натурального кедра. Подходит парам, ценящим максимальную тишину, уединение и эстетику.',
+    'stay-2-price': 'от 16 000 ₽ / сутки',
+    'stay-2-btn': 'Забронировать этот лодж',
+
+    'stay-3-badge': 'Природа близко',
+    'stay-3-title': 'Хала Глэмп (Купол)',
+    'stay-3-desc': 'Стильный геодезический купол, сохраняющий романтику походной жизни с премиальным отельным комфортом. Отапливаемый пол и мягкие постели.',
+    'stay-3-price': 'от 12 000 ₽ / сутки',
+    'stay-3-btn': 'Забронировать этот лодж',
+
+    'stay-4-badge': 'Дух свободы',
+    'stay-4-title': 'Хала Кемпер (Автодом)',
+    'stay-4-desc': 'Уникальный экспедиционный формат проживания в оборудованном кемпере высокого класса. Стоит на самом гребне черного пляжа у воды.',
+    'stay-4-price': 'от 10 000 ₽ / сутки',
+    'stay-4-btn': 'Забронировать этот лодж',
+
+    // Bathhouse
+    'bath-badge': 'Спа на краю света',
+    'bath-title': 'Баня Хала Пар: перерождение у Тихого океана',
+    'bath-desc': 'Почувствуйте целительную силу сибирского кедра, ароматных трав Камчатки и контраста температур. Наша баня расположена прямо у набегающих волн океана, чтобы подарить вам абсолютно новые ощущения.',
+    'bath-item-1-title': 'Панорамный пар',
+    'bath-item-1-desc': 'Огромное окно с видом на прибой Тихого океана.',
+    'bath-item-2-title': 'Целительное наполнение',
+    'bath-item-2-desc': 'Натуральные веники, авторские чаи на камчатских ягодах, травах и меду.',
+    'bath-item-3-title': 'Контрастное купание',
+    'bath-item-3-desc': 'После жаркой парной вы можете напрямую окунуться в прохладный Тихий океан.',
+    'bath-btn': 'Забронировать сеанс',
+    'bath-price-hint': 'От 4 000 ₽ / час (минимальный заказ 2 часа)',
+
+    // Surfing
+    'surf-badge': 'Оседлай волну',
+    'surf-title': 'Серфинг на Камчатке: энергия бушующего океана',
+    'surf-desc': 'Камчатка — одно из самых экзотических и красивых мест для холодного серфинга в мире. Сюда съезжаются любители экстрима со всей планеты. Ловите волны с видом на заснеженные вулканы!',
+    'surf-item-1-title': 'Групповой формат',
+    'surf-item-1-desc': 'Веселая атмосфера, обучение в группе единомышленников.',
+    'surf-item-1-price': '6 000 ₽ / занятие',
+    'surf-item-2-title': 'Индивидуально',
+    'surf-item-2-desc': 'Максимальное внимание тренера и подбор индивидуального темпа.',
+    'surf-item-2-price': '12 000 ₽ / занятие',
+    'surf-btn': 'Записаться на урок',
+    'surf-hint': 'В стоимость входят гидрокостюм, серфборд и фотоотчет.',
+
+    // Gallery
+    'gallery-badge': 'Визуальное путешествие',
+    'gallery-title': 'Атмосфера Хала Кэмп',
+    'gallery-desc': 'Посмотрите на запечатленные мгновения жизни нашего кэмпа. Нажмите на любое фото, чтобы рассмотреть подробнее.',
+
+    // FAQ
+    'faq-badge': 'Отвечаем на вопросы',
+    'faq-title': 'Часто задаваемые вопросы',
+    'faq-q1': 'Где находится глэмпинг Хала Кэмп?',
+    'faq-a1': 'Хала Кэмп находится на Халактырском пляже на Камчатке, в непосредственной близости от Тихого океана. Отсюда открываются панорамные виды на океан и домашнюю группу вулканов.',
+    'faq-q2': 'Какие варианты размещения есть в Хала Кэмп?',
+    'faq-a2': 'В Хала Кэмп доступны четыре формата проживания: Хала-1 (Премиум лодж), Хала-2 (Романтик лодж), Хала Глэмп (геодезические купола) и Хала Кемпер (полнофункциональный автодом на берегу).',
+    'faq-q3': 'Есть ли баня у океана?',
+    'faq-a3': 'Да! Наша уникальная баня Хала Пар расположена на самом берегу. Мы предлагаем индивидуальную аренду бани с аромапарением, чаем на камчатских травах и возможностью окунуться в прохладную воду океана.',
+    'faq-q4': 'Можно ли заняться серфингом?',
+    'faq-a4': 'Конечно! Халактырский пляж — легендарное место для серфинга. У нас можно заказать индивидуальные или групповые занятия по серфингом с сертифицированными инструкторами. Всё оборудование выдаётся на месте.',
+    'faq-q5': 'Как забронировать отдых?',
+    'faq-a5': 'Для бронирования вы можете оставить заявку через интерактивную форму на этом сайте, написать в WhatsApp по номеру +7 (963) 832-34-56 или позвонить по любому из контактных номеров телефона.',
+    'faq-q6': 'Во сколько заезд и выезд?',
+    'faq-a6': 'Стандартное время заезда в Хала Кэмп начинается с 14:00. Выезд осуществляется до 12:00. При наличии возможности мы всегда рады предложить ранний заезд или поздний выезд.',
+
+    // Booking Form
+    'book-badge': 'Заявка на бронирование',
+    'book-title': 'Забронируйте отдых у океана',
+    'book-desc': 'Заполните небольшую форму, и наш администратор свяжется с вами в течение 15 минут для подтверждения доступности дат и уточнения всех деталей.',
+    'book-label-in': 'Дата заезда',
+    'book-label-out': 'Дата выезда',
+    'book-label-guests': 'Количество гостей',
+    'book-label-stay': 'Вариант отдыха',
+    'book-label-name': 'Ваше имя',
+    'book-label-phone': 'Номер телефона',
+    'book-label-method': 'Предпочтительный способ связи',
+    'book-submit': 'Отправить запрос на бронирование',
+    'book-legal-note': 'Нажимая кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с пользовательским соглашением.',
+
+    // Contacts
+    'contact-badge': 'Контакты',
+    'contact-title': 'Ждем вас на Халактырском пляже',
+    'contact-label-address': 'Адрес глэмпинга:',
+    'contact-val-address': 'Камчатский край, Елизовский район, Халактырский пляж, побережье Тихого океана.',
+    'contact-label-phones': 'Телефоны отдела бронирования:',
+    'contact-label-hours': 'Режим работы:',
+    'contact-val-hours': 'Заезд с 14:00 | Выезд до 12:00. Прием звонков администратором: с 09:00 до 21:00 по камчатскому времени (+9 к МСК).',
+    'contact-map-caption': 'Мы находимся прямо на береговой линии. Дорога от Петропавловска-Камчатского занимает около 30-40 минут на полноприводном автомобиле.',
+    'contact-map-btn': 'Открыть в Яндекс Картах',
+
+    // Footer
+    'footer-brand-desc': 'Премиальный глэмпинг на Камчатке у Тихого океана. Испытайте незабываемые ощущения дикой природы в абсолютном отельном комфорте.',
+    'footer-nav-title': 'Навигация',
+    'footer-social-title': 'Мы в сети',
+    'footer-copyright': '© 2026 Хала Кэмп. Все права защищены. Разработка сайта.',
+    'footer-bottom-motto': 'Камчатка — у края Тихого океана',
+    'footer-policy-link': 'Политика конфиденциальности',
+    'footer-agreement-link': 'Пользовательское соглашение',
+    'footer-volunteer': '⚡ Волонтерская программа',
+
+    // Modals Header
+    'policy-modal-title': 'Политика обработки персональных данных',
+    'policy-modal-close': 'Понятно, закрыть',
+    'agreement-modal-title': 'Пользовательское соглашение',
+    'agreement-modal-close': 'Принимаю условия',
+    'volunteer-modal-title': 'Волонтерская программа 2026',
+    'volunteer-modal-desc-1': 'Мечтаете пожить на берегу Тихого океана на Камчатке, помогать в развитии экологичного премиального глэмпинга и серфить каждый день?',
+    'volunteer-modal-desc-2': 'Прием заявок на летний волонтерский сезон начнется совсем скоро. Мы ищем творческих администраторов, помощников по хозяйству, фотографов и любителей океана. Оставьте заявку в бронировании с пометкой в поле «Имя» (например, «Иван - Волонтер»), и мы свяжемся с вами в первую очередь!',
+    'volunteer-modal-close': 'Хочу стать волонтером',
+
+    // Success Modal
+    'success-modal-title': 'Заявка принята!',
+    'success-modal-desc': 'Спасибо, Guest! Мы получили ваш запрос на бронирование лоджа Hala-1 на выбранные вами даты.',
+    'success-modal-sub': 'Наш администратор свяжется с вами в течение 15 минут в WhatsApp на указанный номер.',
+    'success-modal-close': 'Отлично, жду звонка!'
   }
 };
 
@@ -733,6 +939,8 @@ window.changeLanguage = function(lang) {
   // 5. Update input placeholders
   const nameInput = document.getElementById('name-input');
   const phoneInput = document.getElementById('phone-input');
+  const checkInInput = document.getElementById('check-in-input');
+  const checkOutInput = document.getElementById('check-out-input');
   if (nameInput) {
     if (lang === 'zh') nameInput.placeholder = '拼音（如 Zhang San）';
     else if (lang === 'en') nameInput.placeholder = 'e.g. John Doe';
@@ -742,6 +950,16 @@ window.changeLanguage = function(lang) {
     if (lang === 'zh') phoneInput.placeholder = '您的手机号码 / 微信号';
     else if (lang === 'en') phoneInput.placeholder = 'e.g. +1 (555) 000-0000';
     else phoneInput.placeholder = '+7 (999) 999-99-99';
+  }
+  if (checkInInput) {
+    if (lang === 'zh') checkInInput.placeholder = '年-月-日 (YYYY-MM-DD)';
+    else if (lang === 'en') checkInInput.placeholder = 'YYYY-MM-DD';
+    else checkInInput.placeholder = 'ДД.ММ.ГГГГ (гггг-мм-дд)';
+  }
+  if (checkOutInput) {
+    if (lang === 'zh') checkOutInput.placeholder = '年-月-日 (YYYY-MM-DD)';
+    else if (lang === 'en') checkOutInput.placeholder = 'YYYY-MM-DD';
+    else checkOutInput.placeholder = 'ДД.ММ.ГГГГ (гггг-мм-дд)';
   }
 
   // 6. Highlight selected language buttons active classes (Desktop, Drawer, Footer)
@@ -812,11 +1030,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar.classList.add('bg-ink/85', 'backdrop-blur-md', 'py-4', 'shadow-lg', 'border-b', 'border-ocean/10');
-      navbar.classList.remove('bg-transparent', 'py-6');
+      navbar.classList.add('bg-ink', 'backdrop-blur-md', 'py-4', 'shadow-lg', 'border-b', 'border-ocean/10');
+      navbar.classList.remove('bg-transparent', 'py-6', 'sm:py-6');
     } else {
-      navbar.classList.remove('bg-ink/85', 'backdrop-blur-md', 'py-4', 'shadow-lg', 'border-b', 'border-ocean/10');
-      navbar.classList.add('bg-transparent', 'py-6');
+      navbar.classList.remove('bg-ink', 'backdrop-blur-md', 'py-4', 'shadow-lg', 'border-b', 'border-ocean/10');
+      navbar.classList.add('bg-transparent', 'py-6', 'sm:py-6');
     }
   });
 
@@ -898,12 +1116,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (fabTrigger) {
-    fabTrigger.addEventListener('click', toggleFab);
+    fabTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFab();
+    });
   }
 
   // Close FAB on clicking outside
   document.addEventListener('click', (e) => {
-    if (isFabOpen && fabTrigger && !fabTrigger.contains(e.target) && !fabMenu.contains(e.target)) {
+    if (isFabOpen && !fabMenu.contains(e.target) && e.target !== fabTrigger && !fabTrigger.contains(e.target)) {
       toggleFab();
     }
   });
@@ -948,8 +1169,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeLightboxBtn = document.getElementById('close-lightbox-btn');
   const prevLightboxBtn = document.getElementById('prev-lightbox-btn');
   const nextLightboxBtn = document.getElementById('next-lightbox-btn');
-
-  let currentImageIdx = 0;
 
   function updateLightboxLocal(idx) {
     currentImageIdx = idx;

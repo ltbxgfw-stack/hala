@@ -20,8 +20,8 @@
   <meta name="twitter:description" content="Домики у океана, баня Хала Пар, серфинг и отдых на Халактырском пляже.">
   <meta name="twitter:image" content="https://halacamp-kamchatka.ru/images-web/hero/111%20IMG_0398.JPG">
   <meta name="twitter:image:alt" content="Хала Кэмп на Халактырском пляже у Тихого океана">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.svg">
   <link rel="apple-touch-icon" href="/images-web/logo/logo.png">
   <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preload" as="image" href="/images-web/hero/111%20IMG_0398.JPG" fetchpriority="high">
@@ -211,6 +211,7 @@
 
       <!-- LOGO -->
       <a href="#" class="flex items-center space-x-2 sm:space-x-3 group notranslate" translate="no">
+        <img src="logo.svg" alt="Хала Кэмп" class="h-10 w-auto transition-transform duration-200 group-hover:scale-105">
         <span class="bg-ocean hover:bg-oceanSoft text-sand font-display font-black text-lg sm:text-xl px-2.5 py-1.5 rounded-md tracking-wider transition-colors duration-200 shadow-md">
           ХАЛА
         </span>
@@ -260,6 +261,7 @@
       <!-- HEADER INSIDE DRAWER -->
       <div class="flex items-center justify-between border-b border-white/10 pb-4">
         <div class="flex items-center space-x-2 notranslate" translate="no">
+          <img src="logo.svg" alt="Хала Кэмп" class="h-8 w-auto">
           <span class="bg-ocean text-sand font-display font-black text-sm px-2 py-1 rounded tracking-wider">ХАЛА</span>
           <span class="font-display font-medium text-xs tracking-widest text-white uppercase">КЭМП</span>
         </div>
@@ -927,13 +929,13 @@
             <!-- CHECK-IN -->
             <div>
               <label id="book-label-in" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Дата заезда</label>
-              <input id="check-in-input" type="date" required class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
+              <input id="check-in-input" type="text" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
             </div>
 
             <!-- CHECK-OUT -->
             <div>
               <label id="book-label-out" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Дата выезда</label>
-              <input id="check-out-input" type="date" required class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
+              <input id="check-out-input" type="text" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
             </div>
 
           </div>
