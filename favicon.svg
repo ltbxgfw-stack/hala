@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Хала Кэмп">
+  <rect width="64" height="64" rx="16" fill="#145f65"/>
+  <circle cx="30" cy="24" r="14" fill="#f58e1f"/>
+  <path d="M13 50V32l9 18 8-17 8 17 9-18v18H13Z" fill="#ffffff"/>
+</svg>
