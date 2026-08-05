@@ -210,7 +210,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 
       <!-- LOGO -->
-      <a href="#" class="flex items-center space-x-2 sm:space-x-3 group">
+      <a href="#" class="flex items-center space-x-2 sm:space-x-3 group notranslate" translate="no">
         <span class="bg-ocean hover:bg-oceanSoft text-sand font-display font-black text-lg sm:text-xl px-2.5 py-1.5 rounded-md tracking-wider transition-colors duration-200 shadow-md">
           ХАЛА
         </span>
@@ -230,8 +230,14 @@
       </nav>
 
       <!-- DESKTOP CTA BUTTON -->
-      <div class="hidden md:block">
-        <a href="#booking" class="bg-ember hover:bg-amber-500 text-white font-body font-bold text-xs uppercase px-5 py-3 rounded-full tracking-wider transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 inline-block">
+      <div class="hidden md:flex items-center space-x-4">
+        <!-- LANG SELECTOR -->
+        <div class="flex items-center space-x-1 bg-white/10 rounded-full p-0.5 border border-white/15 notranslate" translate="no">
+          <button onclick="changeLanguage('ru')" class="lang-btn-desktop px-2.5 py-1 text-[10px] sm:text-xs rounded-full transition-all text-white bg-ocean font-bold cursor-pointer" data-lang="ru">RU</button>
+          <button onclick="changeLanguage('en')" class="lang-btn-desktop px-2.5 py-1 text-[10px] sm:text-xs rounded-full transition-all text-white/70 hover:text-white cursor-pointer" data-lang="en">EN</button>
+          <button onclick="changeLanguage('zh')" class="lang-btn-desktop px-2.5 py-1 text-[10px] sm:text-xs rounded-full transition-all text-white/70 hover:text-white cursor-pointer" data-lang="zh">中</button>
+        </div>
+        <a id="cta-booking-desktop" href="#booking" class="bg-ember hover:bg-amber-500 text-white font-body font-bold text-xs uppercase px-5 py-3 rounded-full tracking-wider transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 inline-block">
           Забронировать
         </a>
       </div>
@@ -249,22 +255,50 @@
       </div>
     </div>
 
-    <!-- MOBILE DROPDOWN MENU -->
-    <div id="mobile-menu" class="hidden md:hidden bg-ink/95 backdrop-blur-md border-t border-ocean/20 shadow-xl overflow-hidden transition-all duration-300">
-      <div class="px-4 pt-3 pb-6 space-y-3">
-        <a href="#stay" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-white/90 hover:bg-ocean/30 hover:text-ember transition-all">Размещение</a>
-        <a href="#bath" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-white/90 hover:bg-ocean/30 hover:text-ember transition-all">Баня Хала Пар</a>
-        <a href="#surfing" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-white/90 hover:bg-ocean/30 hover:text-ember transition-all">Серфинг</a>
-        <a href="#gallery" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-white/90 hover:bg-ocean/30 hover:text-ember transition-all">Галерея</a>
-        <a href="#faq" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-white/90 hover:bg-ocean/30 hover:text-ember transition-all">Часто задаваемые вопросы</a>
-        <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-md text-base font-medium text-white/90 hover:bg-ocean/30 hover:text-ember transition-all">Контакты</a>
-        <div class="pt-4 px-3">
-          <a href="#booking" class="mobile-nav-link block w-full text-center bg-ember hover:bg-amber-500 text-white font-bold py-3.5 px-4 rounded-full transition-all tracking-wider uppercase text-sm">
-            Забронировать отдых
-          </a>
+    <!-- MOBILE DRAWER MENU -->
+    <div id="mobile-menu" class="fixed inset-y-0 right-0 z-50 w-[290px] bg-ink/95 backdrop-blur-xl shadow-2xl border-l border-white/10 flex flex-col justify-between p-6 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+      <!-- HEADER INSIDE DRAWER -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center space-x-2 notranslate" translate="no">
+          <span class="bg-ocean text-sand font-display font-black text-sm px-2 py-1 rounded tracking-wider">ХАЛА</span>
+          <span class="font-display font-medium text-xs tracking-widest text-white uppercase">КЭМП</span>
         </div>
+        <button id="close-drawer-btn" class="text-white/70 hover:text-ember p-2 focus:outline-none focus:ring-1 focus:ring-ocean rounded-md transition-colors duration-200" aria-label="Close menu">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- NAV LINKS -->
+      <nav class="flex-1 py-6 space-y-4 overflow-y-auto">
+        <!-- LANG SELECTOR FOR MOBILE IN DRAWER -->
+        <div class="px-4 py-2">
+          <span class="block text-[10px] text-white/40 uppercase tracking-widest mb-2" id="mobile-lang-label">Язык / Language</span>
+          <div class="flex items-center space-x-1 bg-white/5 rounded-full p-1 border border-white/10 notranslate" translate="no">
+            <button onclick="changeLanguage('ru')" class="lang-btn-mobile flex-1 py-2 text-xs rounded-full transition-all text-white bg-ocean font-bold cursor-pointer" data-lang="ru">Русский</button>
+            <button onclick="changeLanguage('en')" class="lang-btn-mobile flex-1 py-2 text-xs rounded-full transition-all text-white/70 hover:text-white cursor-pointer" data-lang="en">English</button>
+            <button onclick="changeLanguage('zh')" class="lang-btn-mobile flex-1 py-2 text-xs rounded-full transition-all text-white/70 hover:text-white cursor-pointer" data-lang="zh">中文</button>
+          </div>
+        </div>
+        <a href="#stay" class="mobile-nav-link block px-4 py-2 rounded-xl text-sm font-semibold tracking-wider text-white/90 hover:bg-white/5 hover:text-ember transition-all uppercase">Размещение</a>
+        <a href="#bath" class="mobile-nav-link block px-4 py-2 rounded-xl text-sm font-semibold tracking-wider text-white/90 hover:bg-white/5 hover:text-ember transition-all uppercase">Баня Хала Пар</a>
+        <a href="#surfing" class="mobile-nav-link block px-4 py-2 rounded-xl text-sm font-semibold tracking-wider text-white/90 hover:bg-white/5 hover:text-ember transition-all uppercase">Серфинг</a>
+        <a href="#gallery" class="mobile-nav-link block px-4 py-2 rounded-xl text-sm font-semibold tracking-wider text-white/90 hover:bg-white/5 hover:text-ember transition-all uppercase">Галерея</a>
+        <a href="#faq" class="mobile-nav-link block px-4 py-2 rounded-xl text-sm font-semibold tracking-wider text-white/90 hover:bg-white/5 hover:text-ember transition-all uppercase">Вопросы</a>
+        <a href="#contact" class="mobile-nav-link block px-4 py-2 rounded-xl text-sm font-semibold tracking-wider text-white/90 hover:bg-white/5 hover:text-ember transition-all uppercase">Контакты</a>
+      </nav>
+
+      <!-- DRAWER FOOTER / CTA -->
+      <div class="border-t border-white/10 pt-4 space-y-4">
+        <a id="cta-booking-mobile" href="#booking" class="mobile-nav-link block w-full text-center bg-ember hover:bg-amber-500 text-white font-bold py-3.5 px-4 rounded-full transition-all tracking-wider uppercase text-xs">
+          Забронировать
+        </a>
       </div>
     </div>
+
+    <!-- BACKDROP FOR DRAWER -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
   </header>
 
   <!-- HERO SECTION -->
@@ -276,27 +310,27 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-24 md:py-32 w-full text-white">
       <div class="max-w-3xl">
-        <div class="inline-flex items-center space-x-2 bg-ocean/40 border border-oceanSoft/30 rounded-full px-3.5 py-1 sm:py-1.5 mb-5 sm:mb-6">
+        <div id="hero-badge" class="inline-flex items-center space-x-2 bg-ocean/40 border border-oceanSoft/30 rounded-full px-3.5 py-1 sm:py-1.5 mb-5 sm:mb-6">
           <span class="w-2 h-2 rounded-full bg-ember animate-ping"></span>
           <span class="text-xs sm:text-sm font-medium tracking-wide text-sand">Премиум отдых у Тихого океана</span>
         </div>
 
-        <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mb-5 sm:mb-6">
+        <h1 id="hero-title" class="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight mb-5 sm:mb-6">
           Хала Кэмп — премиальный глэмпинг на Камчатке
         </h1>
 
-        <p class="font-body text-sm sm:text-base sm:text-lg text-white/90 leading-relaxed mb-8 sm:mb-10 max-w-2xl">
+        <p id="hero-desc" class="font-body text-sm sm:text-base sm:text-lg text-white/90 leading-relaxed mb-8 sm:mb-10 max-w-2xl">
           Погрузитесь в дикую природу Камчатки на Халактырском пляже. Уютные домики, расслабляющая баня у самой воды, занятия серфингом и незабываемый шум океанского прибоя.
         </p>
 
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3.5 sm:space-y-0 sm:space-x-5">
-          <a href="#stay" class="bg-ocean hover:bg-oceanSoft text-sand font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all hover:scale-105 shadow-lg flex items-center justify-center space-x-2 text-sm sm:text-base">
+          <a id="hero-cta-stay" href="#stay" class="bg-ocean hover:bg-oceanSoft text-sand font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all hover:scale-105 shadow-lg flex items-center justify-center space-x-2 text-sm sm:text-base">
             <span>Выбрать домик</span>
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </a>
-          <a href="https://wa.me/79638323456" target="_blank" rel="noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm sm:text-base">
+          <a id="hero-cta-wa" href="https://wa.me/79638323456" target="_blank" rel="noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm sm:text-base">
             <span>WhatsApp консультация</span>
           </a>
         </div>
@@ -304,7 +338,7 @@
     </div>
 
     <!-- SCROLL DOWN INDICATOR -->
-    <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+    <div id="hero-scroll-indicator" class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
       <span class="text-white/40 text-[10px] sm:text-xs tracking-widest uppercase mb-1.5 sm:mb-2">Листайте вниз</span>
       <div class="w-5 sm:w-6 h-8 sm:h-10 border-2 border-white/20 rounded-full p-1">
         <div class="w-1.2 h-2 sm:w-1.5 sm:h-2.5 bg-ember rounded-full mx-auto animate-bounce"></div>
@@ -313,7 +347,7 @@
   </section>
 
   <!-- ABOUT / WELCOME SECTION -->
-  <section class="py-14 sm:py-20 md:py-28 bg-sand">
+  <section id="about" class="py-14 sm:py-20 md:py-28 bg-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 items-center">
 
@@ -386,45 +420,45 @@
   <section class="py-12 sm:py-16 bg-white/50 border-y border-sandDark/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <span class="text-ocean font-bold tracking-widest text-xs uppercase block mb-1.5 sm:mb-2">Безупречный сервис</span>
-        <h3 class="font-display font-black text-xl sm:text-2xl md:text-3xl text-ink">Всё для вашего комфорта</h3>
+        <span id="services-badge" class="text-ocean font-bold tracking-widest text-xs uppercase block mb-1.5 sm:mb-2">Безупречный сервис</span>
+        <h3 id="services-title" class="font-display font-black text-xl sm:text-2xl md:text-3xl text-ink">Всё для вашего комфорта</h3>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
 
         <div class="p-3 sm:p-4 bg-sand/30 rounded-xl hover:bg-white hover:shadow-soft transition-all duration-300">
           <div class="text-ocean text-xl sm:text-2xl mb-2 sm:mb-3">📶</div>
-          <h5 class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Starlink Wi-Fi</h5>
-          <p class="text-[10px] sm:text-xs text-ink/60">Всегда на связи на краю земли</p>
+          <h5 id="services-1-title" class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Starlink Wi-Fi</h5>
+          <p id="services-1-desc" class="text-[10px] sm:text-xs text-ink/60">Всегда на связи на краю земли</p>
         </div>
 
         <div class="p-3 sm:p-4 bg-sand/30 rounded-xl hover:bg-white hover:shadow-soft transition-all duration-300">
           <div class="text-ocean text-xl sm:text-2xl mb-2 sm:mb-3">🍳</div>
-          <h5 class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Своя кухня</h5>
-          <p class="text-[10px] sm:text-xs text-ink/60">Плита, посуда и холодильник</p>
+          <h5 id="services-2-title" class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Своя кухня</h5>
+          <p id="services-2-desc" class="text-[10px] sm:text-xs text-ink/60">Плита, посуда и холодильник</p>
         </div>
 
         <div class="p-3 sm:p-4 bg-sand/30 rounded-xl hover:bg-white hover:shadow-soft transition-all duration-300">
           <div class="text-ocean text-xl sm:text-2xl mb-2 sm:mb-3">🚿</div>
-          <h5 class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Горячий душ</h5>
-          <p class="text-[10px] sm:text-xs text-ink/60">Индивидуальный санузел</p>
+          <h5 id="services-3-title" class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Горячий душ</h5>
+          <p id="services-3-desc" class="text-[10px] sm:text-xs text-ink/60">Индивидуальный санузел</p>
         </div>
 
         <div class="p-3 sm:p-4 bg-sand/30 rounded-xl hover:bg-white hover:shadow-soft transition-all duration-300">
           <div class="text-ocean text-xl sm:text-2xl mb-2 sm:mb-3">⛺</div>
-          <h5 class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Мангал-зона</h5>
-          <p class="text-[10px] sm:text-xs text-ink/60">Костровые чаши у домиков</p>
+          <h5 id="services-4-title" class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Мангал-зона</h5>
+          <p id="services-4-desc" class="text-[10px] sm:text-xs text-ink/60">Костровые чаши у домиков</p>
         </div>
 
         <div class="p-3 sm:p-4 bg-sand/30 rounded-xl hover:bg-white hover:shadow-soft transition-all duration-300">
           <div class="text-ocean text-xl sm:text-2xl mb-2 sm:mb-3">🗻</div>
-          <h5 class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Вид на вулканы</h5>
-          <p class="text-[10px] sm:text-xs text-ink/60">Панорамные террасы</p>
+          <h5 id="services-5-title" class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Вид на вулканы</h5>
+          <p id="services-5-desc" class="text-[10px] sm:text-xs text-ink/60">Панорамные террасы</p>
         </div>
 
         <div class="p-3 sm:p-4 bg-sand/30 rounded-xl hover:bg-white hover:shadow-soft transition-all duration-300">
           <div class="text-ocean text-xl sm:text-2xl mb-2 sm:mb-3">✨</div>
-          <h5 class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Все удобства</h5>
-          <p class="text-[10px] sm:text-xs text-ink/60">Косметика, полотенца, белье</p>
+          <h5 id="services-6-title" class="font-display font-bold text-xs sm:text-sm text-ink mb-0.5 sm:mb-1">Все удобства</h5>
+          <p id="services-6-desc" class="text-[10px] sm:text-xs text-ink/60">Косметика, полотенца, белье</p>
         </div>
 
       </div>
@@ -437,11 +471,11 @@
 
       <!-- SECTION HEADER -->
       <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-        <span class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Варианты проживания</span>
-        <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-3 sm:mb-4">
+        <span id="stay-badge" class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Варианты проживания</span>
+        <h2 id="stay-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-3 sm:mb-4">
           Выберите ваш идеальный лодж у океана
         </h2>
-        <p class="font-body text-sm sm:text-base text-ink/70">
+        <p id="stay-desc" class="font-body text-sm sm:text-base text-ink/70">
           Мы разработали разнообразные форматы размещения, сочетающие близость к первозданной стихии Тихого океана и уют премиального загородного отеля.
         </p>
       </div>
@@ -453,33 +487,33 @@
         <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group">
           <div class="h-56 sm:h-64 md:h-72 relative overflow-hidden bg-oceanDeep">
             <img src="/images-web/hala1/hala1%20-%20111.jpg" alt="Хала-1 (Премиум лодж)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Популярно</span>
-            <span class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 18 000 ₽ / сутки</span>
+            <span id="stay-1-badge" class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Популярно</span>
+            <span id="stay-1-price" class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 18 000 ₽ / сутки</span>
           </div>
           <div class="p-5 sm:p-6 md:p-8 flex-1 flex flex-col justify-between">
             <div>
-              <h3 class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала-1 (Премиум лодж)</h3>
-              <p class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Просторный и дизайнерский домик с панорамным остеклением и террасой. Идеален для комфортного проживания с видом на набегающие волны.</p>
+              <h3 id="stay-1-title" class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала-1 (Премиум лодж)</h3>
+              <p id="stay-1-desc" class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Просторный и дизайнерский домик с панорамным остеклением и террасой. Идеален для комфортного проживания с видом на набегающие волны.</p>
               <div class="border-t border-sand/80 pt-4 sm:pt-5 mb-6 sm:mb-8">
-                <h5 class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
+                <h5 id="stay-equip-label-1" class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
                 <div class="flex flex-wrap gap-1.5 sm:gap-2">
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>2+2 гостя</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-1-spec-1">2+2 гостя</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Кухня с техникой</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-1-spec-2">Кухня с техникой</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Душевая кабина</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-1-spec-3">Душевая кабина</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Ортопедический матрас</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-1-spec-4">Ортопедический матрас</span>
                   </span>
                 </div>
               </div>
             </div>
             <div class="pt-1">
-              <button onclick="selectAccommodation('Hala-1')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
+              <button id="stay-1-btn" onclick="selectAccommodation('Hala-1')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
             </div>
           </div>
         </div>
@@ -488,33 +522,33 @@
         <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group">
           <div class="h-56 sm:h-64 md:h-72 relative overflow-hidden bg-oceanDeep">
             <img src="/images-web/hero/111%20IMG_0398.JPG" alt="Хала-2 (Романтик лодж)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Новинка</span>
-            <span class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 16 000 ₽ / сутки</span>
+            <span id="stay-2-badge" class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Новинка</span>
+            <span id="stay-2-price" class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 16 000 ₽ / сутки</span>
           </div>
           <div class="p-5 sm:p-6 md:p-8 flex-1 flex flex-col justify-between">
             <div>
-              <h3 class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала-2 (Романтик лодж)</h3>
-              <p class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Уютный деревянный домик с теплыми интерьерами из натурального кедра. Подходит парам, ценящим максимальную тишину, уединение и эстетику.</p>
+              <h3 id="stay-2-title" class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала-2 (Романтик лодж)</h3>
+              <p id="stay-2-desc" class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Уютный деревянный домик с теплыми интерьерами из натурального кедра. Подходит парам, ценящим максимальную тишину, уединение и эстетику.</p>
               <div class="border-t border-sand/80 pt-4 sm:pt-5 mb-6 sm:mb-8">
-                <h5 class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
+                <h5 id="stay-equip-label-2" class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
                 <div class="flex flex-wrap gap-1.5 sm:gap-2">
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>2 гостя</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-2-spec-1">2 гостя</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Мини-бар</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-2-spec-2">Мини-бар</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Собственная терраса</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-2-spec-3">Собственная терраса</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Зона для костра</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-2-spec-4">Зона для костра</span>
                   </span>
                 </div>
               </div>
             </div>
             <div class="pt-1">
-              <button onclick="selectAccommodation('Hala-2')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
+              <button id="stay-2-btn" onclick="selectAccommodation('Hala-2')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
             </div>
           </div>
         </div>
@@ -523,33 +557,33 @@
         <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group">
           <div class="h-56 sm:h-64 md:h-72 relative overflow-hidden bg-oceanDeep">
             <img src="/images-web/bath/Hala%20Par%20(1).jpg" alt="Хала Глэмп (Купол)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Природа близко</span>
-            <span class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 12 000 ₽ / сутки</span>
+            <span id="stay-3-badge" class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Природа близко</span>
+            <span id="stay-3-price" class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 12 000 ₽ / сутки</span>
           </div>
           <div class="p-5 sm:p-6 md:p-8 flex-1 flex flex-col justify-between">
             <div>
-              <h3 class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала Глэмп (Купол)</h3>
-              <p class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Стильный геодезический купол, сохраняющий романтику походной жизни с премиальным отельным комфортом. Отапливаемый пол и мягкие постели.</p>
+              <h3 id="stay-3-title" class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала Глэмп (Купол)</h3>
+              <p id="stay-3-desc" class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Стильный геодезический купол, сохраняющий романтику походной жизни с премиальным отельным комфортом. Отапливаемый пол и мягкие постели.</p>
               <div class="border-t border-sand/80 pt-4 sm:pt-5 mb-6 sm:mb-8">
-                <h5 class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
+                <h5 id="stay-equip-label-3" class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
                 <div class="flex flex-wrap gap-1.5 sm:gap-2">
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>2-3 гостя</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-3-spec-1">2-3 гостя</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Подогреваемая кровать</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-3-spec-2">Подогреваемая кровать</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Шенилл-декор</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-3-spec-3">Шенилл-декор</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Общая зона кухни</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-3-spec-4">Общая зона кухни</span>
                   </span>
                 </div>
               </div>
             </div>
             <div class="pt-1">
-              <button onclick="selectAccommodation('Hala-Glamp')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
+              <button id="stay-3-btn" onclick="selectAccommodation('Hala-Glamp')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
             </div>
           </div>
         </div>
@@ -558,33 +592,33 @@
         <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group">
           <div class="h-56 sm:h-64 md:h-72 relative overflow-hidden bg-oceanDeep">
             <img src="/images-web/hero/111%20IMG_0398.JPG" alt="Хала Кемпер (Автодом)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Дух свободы</span>
-            <span class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 10 000 ₽ / сутки</span>
+            <span id="stay-4-badge" class="absolute top-4 left-4 bg-ink/70 backdrop-blur-md text-sand font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Дух свободы</span>
+            <span id="stay-4-price" class="absolute bottom-4 right-4 bg-ember text-white font-display font-black text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl shadow-md">от 10 000 ₽ / сутки</span>
           </div>
           <div class="p-5 sm:p-6 md:p-8 flex-1 flex flex-col justify-between">
             <div>
-              <h3 class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала Кемпер (Автодом)</h3>
-              <p class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Уникальный экспедиционный формат проживания в оборудованном кемпере высокого класса. Стоит на самом гребне черного пляжа у воды.</p>
+              <h3 id="stay-4-title" class="font-display font-black text-lg sm:text-xl md:text-2xl text-ink mb-2 sm:mb-3 tracking-tight group-hover:text-ocean transition-colors duration-200">Хала Кемпер (Автодом)</h3>
+              <p id="stay-4-desc" class="font-body text-xs sm:text-sm md:text-base text-ink/75 leading-relaxed mb-4 sm:mb-6">Уникальный экспедиционный формат проживания в оборудованном кемпере высокого класса. Стоит на самом гребне черного пляжа у воды.</p>
               <div class="border-t border-sand/80 pt-4 sm:pt-5 mb-6 sm:mb-8">
-                <h5 class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
+                <h5 id="stay-equip-label-4" class="font-display font-bold text-[10px] sm:text-xs text-ink/50 uppercase tracking-widest mb-2.5 sm:mb-3">Оснащение лоджа:</h5>
                 <div class="flex flex-wrap gap-1.5 sm:gap-2">
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>2 гостя</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-4-spec-1">2 гостя</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Компактная кухня</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-4-spec-2">Компактная кухня</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Интегрированный душ</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-4-spec-3">Интегрированный душ</span>
                   </span>
                   <span class="bg-sand/60 text-oceanDeep font-medium text-[10px] sm:text-xs px-2.5 py-1 sm:py-1.5 rounded-md flex items-center space-x-1 border border-sandDark/40">
-                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span>Автономное тепло</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-ember"></span><span id="stay-4-spec-4">Автономное тепло</span>
                   </span>
                 </div>
               </div>
             </div>
             <div class="pt-1">
-              <button onclick="selectAccommodation('Hala-Kemper')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
+              <button id="stay-4-btn" onclick="selectAccommodation('Hala-Kemper')" class="w-full block text-center bg-ocean hover:bg-oceanSoft text-sand font-bold py-3.5 sm:py-4 px-6 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать этот лодж</button>
             </div>
           </div>
         </div>
@@ -609,11 +643,11 @@
 
         <!-- TEXT -->
         <div class="px-2 sm:px-0">
-          <span class="text-ember font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Спа на краю света</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-sand leading-tight mb-4 sm:mb-6">
+          <span id="bath-badge" class="text-ember font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Спа на краю света</span>
+          <h2 id="bath-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-sand leading-tight mb-4 sm:mb-6">
             Баня Хала Пар: перерождение у Тихого океана
           </h2>
-          <p class="font-body text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
+          <p id="bath-desc" class="font-body text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
             Почувствуйте целительную силу сибирского кедра, ароматных трав Камчатки и контраста температур. Наша баня расположена прямо у набегающих волн океана, чтобы подарить вам абсолютно новые ощущения.
           </p>
 
@@ -621,29 +655,29 @@
             <div class="flex items-start space-x-3">
               <span class="text-ember mt-0.5 text-sm sm:text-base">✓</span>
               <div>
-                <h5 class="font-display font-bold text-xs sm:text-sm md:text-base text-sand">Панорамный пар</h5>
-                <p class="text-white/60 text-xs">Огромное окно с видом на прибой Тихого океана.</p>
+                <h5 id="bath-item-1-title" class="font-display font-bold text-xs sm:text-sm md:text-base text-sand">Панорамный пар</h5>
+                <p id="bath-item-1-desc" class="text-white/60 text-xs">Огромное окно с видом на прибой Тихого океана.</p>
               </div>
             </div>
             <div class="flex items-start space-x-3">
               <span class="text-ember mt-0.5 text-sm sm:text-base">✓</span>
               <div>
-                <h5 class="font-display font-bold text-xs sm:text-sm md:text-base text-sand">Целительное наполнение</h5>
-                <p class="text-white/60 text-xs">Натуральные веники, авторские чаи на камчатских ягодах, травах и меду.</p>
+                <h5 id="bath-item-2-title" class="font-display font-bold text-xs sm:text-sm md:text-base text-sand">Целительное наполнение</h5>
+                <p id="bath-item-2-desc" class="text-white/60 text-xs">Натуральные веники, авторские чаи на камчатских ягодах, травах и меду.</p>
               </div>
             </div>
             <div class="flex items-start space-x-3">
               <span class="text-ember mt-0.5 text-sm sm:text-base">✓</span>
               <div>
-                <h5 class="font-display font-bold text-xs sm:text-sm md:text-base text-sand">Контрастное купание</h5>
-                <p class="text-white/60 text-xs">После жаркой парной вы можете напрямую окунуться в прохладный Тихий океан.</p>
+                <h5 id="bath-item-3-title" class="font-display font-bold text-xs sm:text-sm md:text-base text-sand">Контрастное купание</h5>
+                <p id="bath-item-3-desc" class="text-white/60 text-xs">После жаркой парной вы можете напрямую окунуться в прохладный Тихий океан.</p>
               </div>
             </div>
           </div>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3.5 sm:space-y-0 sm:space-x-4">
-            <button onclick="selectAccommodation('Bath')" class="bg-ember hover:bg-amber-500 text-white font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать сеанс</button>
-            <span class="text-white/50 text-[10px] sm:text-xs text-center sm:text-left tracking-wide">
+            <button id="bath-btn" onclick="selectAccommodation('Bath')" class="bg-ember hover:bg-amber-500 text-white font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all uppercase tracking-wider text-xs">Забронировать сеанс</button>
+            <span id="bath-price-hint" class="text-white/50 text-[10px] sm:text-xs text-center sm:text-left tracking-wide">
               От 4 000 ₽ / час (минимальный заказ 2 часа)
             </span>
           </div>
@@ -660,30 +694,30 @@
 
         <!-- TEXT -->
         <div class="order-2 lg:order-1 px-2 sm:px-0">
-          <span class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Оседлай волну</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-4 sm:mb-6">
+          <span id="surf-badge" class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Оседлай волну</span>
+          <h2 id="surf-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-4 sm:mb-6">
             Серфинг на Камчатке: энергия бушующего океана
           </h2>
-          <p class="font-body text-ink/80 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
+          <p id="surf-desc" class="font-body text-ink/80 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
             Камчатка — одно из самых экзотических и красивых мест для холодного серфинга в мире. Сюда съезжаются любители экстрима со всей планеты. Ловите волны с видом на заснеженные вулканы!
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <div class="p-3.5 sm:p-4 bg-white rounded-2xl shadow-soft">
-              <h4 class="font-display font-bold text-xs sm:text-sm text-ocean mb-0.5 sm:mb-1">Групповой формат</h4>
-              <p class="text-[10px] sm:text-xs text-ink/60">Веселая атмосфера, обучение в группе единомышленников.</p>
-              <span class="text-xs font-bold text-ember block mt-1.5 sm:mt-2">6 000 ₽ / занятие</span>
+              <h4 id="surf-item-1-title" class="font-display font-bold text-xs sm:text-sm text-ocean mb-0.5 sm:mb-1">Групповой формат</h4>
+              <p id="surf-item-1-desc" class="text-[10px] sm:text-xs text-ink/60">Веселая атмосфера, обучение в группе единомышленников.</p>
+              <span id="surf-item-1-price" class="text-xs font-bold text-ember block mt-1.5 sm:mt-2">6 000 ₽ / занятие</span>
             </div>
             <div class="p-3.5 sm:p-4 bg-white rounded-2xl shadow-soft">
-              <h4 class="font-display font-bold text-xs sm:text-sm text-ocean mb-0.5 sm:mb-1">Индивидуально</h4>
-              <p class="text-[10px] sm:text-xs text-ink/60">Максимальное внимание тренера и подбор индивидуального темпа.</p>
-              <span class="text-xs font-bold text-ember block mt-1.5 sm:mt-2">12 000 ₽ / занятие</span>
+              <h4 id="surf-item-2-title" class="font-display font-bold text-xs sm:text-sm text-ocean mb-0.5 sm:mb-1">Индивидуально</h4>
+              <p id="surf-item-2-desc" class="text-[10px] sm:text-xs text-ink/60">Максимальное внимание тренера и подбор индивидуального темпа.</p>
+              <span id="surf-item-2-price" class="text-xs font-bold text-ember block mt-1.5 sm:mt-2">12 000 ₽ / занятие</span>
             </div>
           </div>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3.5 sm:space-y-0 sm:space-x-4">
-            <button onclick="selectAccommodation('Surf')" class="bg-ocean hover:bg-oceanSoft text-sand font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all uppercase tracking-wider text-xs">Записаться на урок</button>
-            <span class="text-ink/60 text-[10px] sm:text-xs text-center sm:text-left tracking-wide">
+            <button id="surf-btn" onclick="selectAccommodation('Surf')" class="bg-ocean hover:bg-oceanSoft text-sand font-bold text-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all uppercase tracking-wider text-xs">Записаться на урок</button>
+            <span id="surf-hint" class="text-ink/60 text-[10px] sm:text-xs text-center sm:text-left tracking-wide">
               В стоимость входят гидрокостюм, серфборд и фотоотчет.
             </span>
           </div>
@@ -704,11 +738,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-        <span class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Визуальное путешествие</span>
-        <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-3 sm:mb-4">
+        <span id="gallery-badge" class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Визуальное путешествие</span>
+        <h2 id="gallery-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-3 sm:mb-4">
           Атмосфера Хала Кэмп
         </h2>
-        <p class="font-body text-sm sm:text-base text-ink/60">
+        <p id="gallery-desc" class="font-body text-sm sm:text-base text-ink/60">
           Посмотрите на запечатленные мгновения жизни нашего кэмпа. Нажмите на любое фото, чтобы рассмотреть подробнее.
         </p>
       </div>
@@ -773,8 +807,8 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-10 sm:mb-16">
-        <span class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Отвечаем на вопросы</span>
-        <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight">
+        <span id="faq-badge" class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Отвечаем на вопросы</span>
+        <h2 id="faq-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight">
           Часто задаваемые вопросы
         </h2>
       </div>
@@ -785,11 +819,11 @@
         <!-- FAQ 1 -->
         <div class="faq-accordion bg-white rounded-2xl border border-sandDark/30 shadow-soft overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-5 sm:px-6 py-4.5 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none">
-            <span class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Где находится глэмпинг Хала Кэмп?</span>
+            <span id="faq-q1" class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Где находится глэмпинг Хала Кэмп?</span>
             <span class="arrow-icon ml-4 text-ocean text-xs sm:text-sm transition-transform duration-300">▼</span>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
+            <div id="faq-a1" class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
               Хала Кэмп находится на Халактырском пляже на Камчатке, в непосредственной близости от Тихого океана. Отсюда открываются панорамные виды на океан и домашнюю группу вулканов.
             </div>
           </div>
@@ -798,11 +832,11 @@
         <!-- FAQ 2 -->
         <div class="faq-accordion bg-white rounded-2xl border border-sandDark/30 shadow-soft overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-5 sm:px-6 py-4.5 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none">
-            <span class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Какие варианты размещения есть в Хала Кэмп?</span>
+            <span id="faq-q2" class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Какие варианты размещения есть в Хала Кэмп?</span>
             <span class="arrow-icon ml-4 text-ocean text-xs sm:text-sm transition-transform duration-300">▼</span>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
+            <div id="faq-a2" class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
               В Хала Кэмп доступны четыре формата проживания: Хала-1 (Премиум лодж), Хала-2 (Романтик лодж), Хала Глэмп (геодезические купола) и Хала Кемпер (полнофункциональный автодом на берегу).
             </div>
           </div>
@@ -811,11 +845,11 @@
         <!-- FAQ 3 -->
         <div class="faq-accordion bg-white rounded-2xl border border-sandDark/30 shadow-soft overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-5 sm:px-6 py-4.5 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none">
-            <span class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Есть ли баня у океана?</span>
+            <span id="faq-q3" class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Есть ли баня у океана?</span>
             <span class="arrow-icon ml-4 text-ocean text-xs sm:text-sm transition-transform duration-300">▼</span>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
+            <div id="faq-a3" class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
               Да! Наша уникальная баня Хала Пар расположена на самом берегу. Мы предлагаем индивидуальную аренду бани с аромапарением, чаем на камчатских травах и возможностью окунуться в прохладную воду океана.
             </div>
           </div>
@@ -824,11 +858,11 @@
         <!-- FAQ 4 -->
         <div class="faq-accordion bg-white rounded-2xl border border-sandDark/30 shadow-soft overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-5 sm:px-6 py-4.5 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none">
-            <span class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Можно ли заняться серфингом?</span>
+            <span id="faq-q4" class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Можно ли заняться серфингом?</span>
             <span class="arrow-icon ml-4 text-ocean text-xs sm:text-sm transition-transform duration-300">▼</span>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
+            <div id="faq-a4" class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
               Конечно! Халактырский пляж — легендарное место для серфинга. У нас можно заказать индивидуальные или групповые занятия по серфингом с сертифицированными инструкторами. Всё оборудование выдаётся на месте.
             </div>
           </div>
@@ -837,11 +871,11 @@
         <!-- FAQ 5 -->
         <div class="faq-accordion bg-white rounded-2xl border border-sandDark/30 shadow-soft overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-5 sm:px-6 py-4.5 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none">
-            <span class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Как забронировать отдых?</span>
+            <span id="faq-q5" class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Как забронировать отдых?</span>
             <span class="arrow-icon ml-4 text-ocean text-xs sm:text-sm transition-transform duration-300">▼</span>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
+            <div id="faq-a5" class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
               Для бронирования вы можете оставить заявку через интерактивную форму на этом сайте, написать в WhatsApp по номеру +7 (963) 832-34-56 или позвонить по любому из контактных номеров телефона.
             </div>
           </div>
@@ -850,11 +884,11 @@
         <!-- FAQ 6 -->
         <div class="faq-accordion bg-white rounded-2xl border border-sandDark/30 shadow-soft overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-5 sm:px-6 py-4.5 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none">
-            <span class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Во сколько заезд и выезд?</span>
+            <span id="faq-q6" class="font-display font-bold text-sm sm:text-base md:text-lg text-ink hover:text-ocean transition-colors">Во сколько заезд и выезд?</span>
             <span class="arrow-icon ml-4 text-ocean text-xs sm:text-sm transition-transform duration-300">▼</span>
           </button>
           <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
+            <div id="faq-a6" class="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm md:text-base text-ink/75 font-body leading-relaxed border-t border-sand/40 pt-3 sm:pt-4">
               Стандартное время заезда в Хала Кэмп начинается с 14:00. Выезд осуществляется до 12:00. При наличии возможности мы всегда рады предложить ранний заезд или поздний выезд.
             </div>
           </div>
@@ -875,11 +909,11 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
       <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-        <span class="text-ember font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Заявка на бронирование</span>
-        <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-sand leading-tight mb-3 sm:mb-4">
+        <span id="book-badge" class="text-ember font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Заявка на бронирование</span>
+        <h2 id="book-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-sand leading-tight mb-3 sm:mb-4">
           Забронируйте отдых у океана
         </h2>
-        <p class="font-body text-sm sm:text-base text-white/85">
+        <p id="book-desc" class="font-body text-sm sm:text-base text-white/85">
           Заполните небольшую форму, и наш администратор свяжется с вами в течение 15 минут для подтверждения доступности дат и уточнения всех деталей.
         </p>
       </div>
@@ -892,13 +926,13 @@
 
             <!-- CHECK-IN -->
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Дата заезда</label>
+              <label id="book-label-in" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Дата заезда</label>
               <input id="check-in-input" type="date" required class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
             </div>
 
             <!-- CHECK-OUT -->
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Дата выезда</label>
+              <label id="book-label-out" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Дата выезда</label>
               <input id="check-out-input" type="date" required class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
             </div>
 
@@ -908,7 +942,7 @@
 
             <!-- GUESTS -->
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Количество гостей</label>
+              <label id="book-label-guests" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Количество гостей</label>
               <select id="guests-select" class="w-full bg-ink/60 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all cursor-pointer h-[46px] sm:h-auto">
                 <option value="1">1 гость</option>
                 <option value="2" selected>2 гостя</option>
@@ -920,7 +954,7 @@
 
             <!-- ACCOMMODATION SELECT -->
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Вариант отдыха</label>
+              <label id="book-label-stay" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Вариант отдыха</label>
               <select id="accommodation-select" class="w-full bg-ink/60 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all cursor-pointer h-[46px] sm:h-auto">
                 <option value="Hala-1">Хала-1 (Премиум лодж)</option>
                 <option value="Hala-2">Хала-2 (Романтик лодж)</option>
@@ -937,13 +971,13 @@
 
             <!-- CONTACT NAME -->
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Ваше имя</label>
+              <label id="book-label-name" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Ваше имя</label>
               <input id="name-input" type="text" required placeholder="Иван Иванов" class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white placeholder-white/45 focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
             </div>
 
             <!-- PHONE -->
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Номер телефона</label>
+              <label id="book-label-phone" class="block text-xs font-semibold uppercase tracking-wider mb-2 text-white/70">Номер телефона</label>
               <input id="phone-input" type="tel" required placeholder="+7 (999) 999-99-99" class="w-full bg-ink/45 border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-white placeholder-white/45 focus:outline-none focus:ring-2 focus:ring-ember focus:border-transparent transition-all h-[46px] sm:h-auto">
             </div>
 
@@ -951,7 +985,7 @@
 
           <!-- CONTACT METHOD -->
           <div>
-            <span class="block text-xs font-semibold uppercase tracking-wider mb-3 text-white/70">Предпочтительный способ связи</span>
+            <span id="book-label-method" class="block text-xs font-semibold uppercase tracking-wider mb-3 text-white/70">Предпочтительный способ связи</span>
             <div class="flex items-center space-x-6">
               <label class="flex items-center space-x-2.5 cursor-pointer">
                 <input type="radio" name="contactMethod" value="WhatsApp" checked class="form-radio text-ember focus:ring-ember h-4.5 w-4.5 bg-ink/40 border-white/20">
@@ -971,6 +1005,11 @@
             </button>
           </div>
 
+          <!-- Legal Agreement Label inside Booking Form -->
+          <p class="text-[10px] sm:text-xs text-white/50 text-center leading-relaxed">
+            Нажимая кнопку, вы даете согласие на обработку <a href="#" id="modal-policy-form-trigger" class="text-ember hover:underline">персональных данных</a> и соглашаетесь с <a href="#" id="modal-agreement-form-trigger" class="text-ember hover:underline">пользовательским соглашением</a>.
+          </p>
+
         </form>
       </div>
 
@@ -984,8 +1023,8 @@
 
         <!-- CONTACT INFO -->
         <div>
-          <span class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Контакты</span>
-          <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-6 sm:mb-8">
+          <span id="contact-badge" class="text-ocean font-bold tracking-widest text-xs uppercase block mb-2 sm:mb-3">Контакты</span>
+          <h2 id="contact-title" class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-ink leading-tight mb-6 sm:mb-8">
             Ждем вас на Халактырском пляже
           </h2>
 
@@ -994,15 +1033,15 @@
             <div class="flex items-start space-x-3.5 sm:space-x-4">
               <span class="text-ocean mt-1">📍</span>
               <div>
-                <h5 class="font-display font-bold text-xs sm:text-sm text-ink uppercase tracking-wider mb-1">Адрес глэмпинга:</h5>
-                <p class="text-ink/80 text-xs sm:text-sm md:text-base">Камчатский край, Елизовский район, Халактырский пляж, побережье Тихого океана.</p>
+                <h5 id="contact-label-address" class="font-display font-bold text-xs sm:text-sm text-ink uppercase tracking-wider mb-1">Адрес глэмпинга:</h5>
+                <p id="contact-val-address" class="text-ink/80 text-xs sm:text-sm md:text-base">Камчатский край, Елизовский район, Халактырский пляж, побережье Тихого океана.</p>
               </div>
             </div>
 
             <div class="flex items-start space-x-3.5 sm:space-x-4">
               <span class="text-ocean mt-1">📞</span>
               <div>
-                <h5 class="font-display font-bold text-xs sm:text-sm text-ink uppercase tracking-wider mb-1">Телефоны отдела бронирования:</h5>
+                <h5 id="contact-label-phones" class="font-display font-bold text-xs sm:text-sm text-ink uppercase tracking-wider mb-1">Телефоны отдела бронирования:</h5>
                 <div class="space-y-1.5 text-ink/80 text-xs sm:text-sm md:text-base flex flex-col">
                   <a href="tel:+79247917799" class="hover:text-ember transition-colors">+7 (924) 791-77-99</a>
                   <a href="tel:+79638323456" class="hover:text-ember transition-colors">+7 (963) 832-34-56</a>
@@ -1014,8 +1053,8 @@
             <div class="flex items-start space-x-3.5 sm:space-x-4">
               <span class="text-ocean mt-1">🕒</span>
               <div>
-                <h5 class="font-display font-bold text-xs sm:text-sm text-ink uppercase tracking-wider mb-1">Режим работы:</h5>
-                <p class="text-ink/80 text-xs sm:text-sm md:text-base">Заезд с 14:00 | Выезд до 12:00. Прием звонков администратором: с 09:00 до 21:00 по камчатскому времени (+9 к МСК).</p>
+                <h5 id="contact-label-hours" class="font-display font-bold text-xs sm:text-sm text-ink uppercase tracking-wider mb-1">Режим работы:</h5>
+                <p id="contact-val-hours" class="text-ink/80 text-xs sm:text-sm md:text-base">Заезд с 14:00 | Выезд до 12:00. Прием звонков администратором: с 09:00 до 21:00 по камчатскому времени (+9 к МСК).</p>
               </div>
             </div>
 
@@ -1032,11 +1071,11 @@
             <span class="text-ember text-3xl sm:text-4xl animate-bounce mb-3.5 sm:mb-4">📍</span>
 
             <h4 class="font-display font-black text-lg sm:text-xl text-sand mb-2 uppercase tracking-wide">Халактырский Пляж</h4>
-            <p class="font-body text-xs sm:text-sm text-sand/80 max-w-sm mb-5 sm:mb-6 leading-relaxed">
+            <p id="contact-map-caption" class="font-body text-xs sm:text-sm text-sand/80 max-w-sm mb-5 sm:mb-6 leading-relaxed">
               Мы находимся прямо на береговой линии. Дорога от Петропавловска-Камчатского занимает около 30-40 минут на полноприводном автомобиле.
             </p>
 
-            <a href="https://yandex.ru/maps/?text=52.9834,158.8504" target="_blank" rel="noreferrer" class="bg-white text-oceanDeep font-bold text-xs px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl uppercase tracking-wider hover:bg-ember hover:text-white transition-all duration-300">
+            <a id="contact-map-btn" href="https://yandex.ru/maps/?text=52.9834,158.8504" target="_blank" rel="noreferrer" class="bg-white text-oceanDeep font-bold text-xs px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl uppercase tracking-wider hover:bg-ember hover:text-white transition-all duration-300">
               Открыть в Яндекс Картах
             </a>
           </div>
@@ -1053,48 +1092,68 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 sm:gap-12 mb-10 sm:mb-12">
 
         <!-- BRAND -->
-        <div class="md:col-span-2 space-y-3 sm:space-y-4">
+        <div class="md:col-span-2 space-y-3 sm:space-y-4 notranslate" translate="no">
           <span class="bg-ocean text-sand font-display font-black text-base sm:text-lg px-3 py-1.5 rounded tracking-wider uppercase inline-block">
             Хала Кэмп
           </span>
-          <p class="font-body text-xs sm:text-sm text-white/70 max-w-sm leading-relaxed">
+          <p id="footer-brand-desc" class="font-body text-xs sm:text-sm text-white/70 max-w-sm leading-relaxed">
             Премиальный глэмпинг на Камчатке у Тихого океана. Испытайте незабываемые ощущения дикой природы в абсолютном отельном комфорте.
           </p>
         </div>
 
         <!-- LINKS -->
         <div>
-          <h5 class="font-display font-bold text-xs text-sand uppercase tracking-wider mb-3.5 sm:mb-4">Навигация</h5>
+          <h5 id="footer-nav-title" class="font-display font-bold text-xs text-sand uppercase tracking-wider mb-3.5 sm:mb-4">Навигация</h5>
           <ul class="space-y-2 text-xs sm:text-sm">
             <li><a href="#stay" class="hover:text-ember transition-colors">Размещение</a></li>
             <li><a href="#bath" class="hover:text-ember transition-colors">Баня Хала Пар</a></li>
             <li><a href="#surfing" class="hover:text-ember transition-colors">Серфинг на Камчатке</a></li>
             <li><a href="#gallery" class="hover:text-ember transition-colors">Наша Галерея</a></li>
+            <li><a href="#" id="volunteer-link" class="text-ember hover:underline font-bold transition-all flex items-center space-x-1"><span>⚡ Волонтерская программа</span></a></li>
           </ul>
         </div>
 
         <!-- SOCIALS -->
-        <div>
-          <h5 class="font-display font-bold text-xs text-sand uppercase tracking-wider mb-3.5 sm:mb-4">Мы в сети</h5>
-          <div class="flex space-x-3.5 sm:space-x-4">
-            <a href="https://wa.me/79638323456" target="_blank" rel="noreferrer" class="bg-white/5 hover:bg-ocean text-white px-3 py-2 rounded-full transition-colors duration-200">
-              <span class="text-xs font-bold font-mono">WA</span>
-            </a>
-            <a href="#" class="bg-white/5 hover:bg-ocean text-white px-3 py-2 rounded-full transition-colors duration-200">
-              <span class="text-xs font-bold font-mono">TG</span>
-            </a>
-            <a href="#" class="bg-white/5 hover:bg-ocean text-white px-3 py-2 rounded-full transition-colors duration-200">
-              <span class="text-xs font-bold font-mono">VK</span>
-            </a>
+        <div class="flex flex-col space-y-4">
+          <div>
+            <h5 class="font-display font-bold text-xs text-sand uppercase tracking-wider mb-3.5 sm:mb-4" id="footer-social-title">Мы в сети</h5>
+            <div class="flex space-x-3.5 sm:space-x-4">
+              <a href="https://wa.me/79638323456" target="_blank" rel="noreferrer" class="bg-white/5 hover:bg-ocean text-white px-3 py-2 rounded-full transition-colors duration-200">
+                <span class="text-xs font-bold font-mono">WA</span>
+              </a>
+              <a href="#" class="bg-white/5 hover:bg-ocean text-white px-3 py-2 rounded-full transition-colors duration-200">
+                <span class="text-xs font-bold font-mono">TG</span>
+              </a>
+              <a href="#" class="bg-white/5 hover:bg-ocean text-white px-3 py-2 rounded-full transition-colors duration-200">
+                <span class="text-xs font-bold font-mono">VK</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- FOOTER LANGUAGE PICKER -->
+          <div>
+            <span class="block text-[10px] text-white/40 uppercase tracking-widest mb-2" id="footer-lang-label">Язык сайта / Site Language</span>
+            <div class="inline-flex items-center space-x-1.5 bg-white/5 border border-white/10 rounded-lg p-1.5 notranslate" translate="no">
+              <button onclick="changeLanguage('ru')" class="lang-btn-footer text-xs font-bold px-2 py-1 rounded text-white bg-ocean transition-all cursor-pointer" data-lang="ru">Русский</button>
+              <button onclick="changeLanguage('en')" class="lang-btn-footer text-xs px-2 py-1 rounded text-white/60 hover:text-white transition-all cursor-pointer" data-lang="en">English</button>
+              <button onclick="changeLanguage('zh')" class="lang-btn-footer text-xs px-2 py-1 rounded text-white/60 hover:text-white transition-all cursor-pointer" data-lang="zh">中文</button>
+            </div>
           </div>
         </div>
 
       </div>
 
       <!-- BOTTOM FOOTER -->
-      <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs">
-        <p class="text-center sm:text-left">&copy; 2026 Хала Кэмп. Все права защищены. Разработка сайта.</p>
-        <p class="mt-3.5 sm:mt-0 text-white/30 tracking-wider">Камчатка — у края Тихого океана</p>
+      <div class="border-t border-white/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] sm:text-xs space-y-4 sm:space-y-0">
+        <div class="flex flex-col space-y-2 text-center sm:text-left">
+          <p>&copy; 2026 Хала Кэмп. Все права защищены. Разработка сайта.</p>
+          <div class="flex flex-wrap justify-center sm:justify-start gap-4 text-[10px] text-white/40">
+            <a href="#" id="modal-policy-link" class="hover:text-ember transition-colors">Политика конфиденциальности</a>
+            <span>•</span>
+            <a href="#" id="modal-agreement-link" class="hover:text-ember transition-colors">Пользовательское соглашение</a>
+          </div>
+        </div>
+        <p class="mt-3.5 sm:mt-0 text-white/30 tracking-wider text-center sm:text-right">Камчатка — у края Тихого океана</p>
       </div>
 
     </div>
@@ -1105,7 +1164,7 @@
     <!-- LIGHTBOX HEADER -->
     <div class="flex justify-between items-center text-white z-10 w-full">
       <div>
-        <span class="text-ember font-semibold text-[10px] sm:text-xs uppercase tracking-widest block">Хала Кэмп Галерея</span>
+        <span class="text-ember font-semibold text-[10px] sm:text-xs uppercase tracking-widest block notranslate" translate="no">Хала Кэмп Галерея</span>
         <span id="lightbox-counter" class="text-white/60 text-xs">1 из 6</span>
       </div>
       <button id="close-lightbox-btn" class="bg-white/10 hover:bg-white/20 p-2.5 rounded-full text-white transition-all cursor-pointer h-10 w-10 flex items-center justify-center text-lg" aria-label="Close lightbox">
@@ -1137,6 +1196,66 @@
     </div>
   </div>
 
+  <!-- IN-PAGE DESIGNER MODALS FOR POLICIES, AGREEMENT & VOLUNTEERS (Aesthetic Glassmorphism Overlays) -->
+
+  <!-- Privacy Policy / Personal Data Modal -->
+  <div id="policy-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-sand text-ink rounded-3xl p-6 sm:p-8 md:p-10 max-w-lg w-full shadow-2xl relative border border-oceanSoft/30 max-h-[85vh] flex flex-col justify-between">
+      <button class="absolute top-4 right-4 text-ink/40 hover:text-ink h-8 w-8 rounded-full border border-ink/10 flex items-center justify-center font-bold text-sm" onclick="closeLegalModal('policy-modal')" aria-label="Close modal">✕</button>
+      <div class="overflow-y-auto pr-2 mb-6">
+        <h3 id="policy-modal-title" class="font-display font-black text-lg sm:text-xl text-oceanDeep mb-4 uppercase tracking-wide">Политика обработки персональных данных</h3>
+        <div class="space-y-3 text-xs sm:text-sm text-ink/80 leading-relaxed font-body">
+          <p class="font-bold">1. Общие положения</p>
+          <p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые Администрацией Хала Кэмп (далее — Оператор).</p>
+          <p class="font-bold">2. Персональные данные, обрабатываемые Оператором</p>
+          <p>Оператор обрабатывает следующие персональные данные Пользователя: имя, номер мобильного телефона, выбранные даты проживания, предпочитаемый канал связи.</p>
+          <p class="font-bold">3. Цели обработки персональных данных</p>
+          <p>Цель обработки персональных данных Пользователя — подтверждение возможности бронирования домиков у океана, информирование Пользователя о деталях бронирования посредством WhatsApp или телефонного звонка, предоставление услуг глэмпинга.</p>
+          <p class="font-bold">4. Безопасность персональных данных</p>
+          <p>Оператор обеспечивает сохранность персональных данных и принимает все возможные меры, исключающие доступ к персональным данным неуполномоченных лиц.</p>
+        </div>
+      </div>
+      <button id="policy-modal-close" class="w-full bg-ocean hover:bg-oceanSoft text-sand font-display font-bold py-3.5 px-6 rounded-xl transition-all uppercase tracking-wider text-xs" onclick="closeLegalModal('policy-modal')">Понячно, закрыть</button>
+    </div>
+  </div>
+
+  <!-- User Agreement Modal -->
+  <div id="agreement-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-sand text-ink rounded-3xl p-6 sm:p-8 md:p-10 max-w-lg w-full shadow-2xl relative border border-oceanSoft/30 max-h-[85vh] flex flex-col justify-between">
+      <button class="absolute top-4 right-4 text-ink/40 hover:text-ink h-8 w-8 rounded-full border border-ink/10 flex items-center justify-center font-bold text-sm" onclick="closeLegalModal('agreement-modal')" aria-label="Close modal">✕</button>
+      <div class="overflow-y-auto pr-2 mb-6">
+        <h3 id="agreement-modal-title" class="font-display font-black text-lg sm:text-xl text-oceanDeep mb-4 uppercase tracking-wide">Пользовательское соглашение</h3>
+        <div class="space-y-3 text-xs sm:text-sm text-ink/80 leading-relaxed font-body">
+          <p class="font-bold">1. Предмет соглашения</p>
+          <p>Настоящее Соглашение регулирует отношения между пользователем сайта и глэмпингом Хала Кэмп. Использование сайта означает полное и безоговорочное принятие пользователем условий настоящего Соглашения.</p>
+          <p class="font-bold">2. Правила проживания в глэмпинге</p>
+          <p>Пользователь обязуется бережно относиться к имуществу кэмпа, соблюдать правила пожарной безопасности на территории Халактырского пляжа, а также уважать тишину и личные границы других гостей лагеря.</p>
+          <p class="font-bold">3. Ответственность сторон</p>
+          <p>Администрация не несет ответственности за неблагоприятные погодные условия на Камчатке (шторм, туман), однако обязуется сделать все возможное для обеспечения максимального комфорта и безопасности проживания.</p>
+        </div>
+      </div>
+      <button id="agreement-modal-close" class="w-full bg-ocean hover:bg-oceanSoft text-sand font-display font-bold py-3.5 px-6 rounded-xl transition-all uppercase tracking-wider text-xs" onclick="closeLegalModal('agreement-modal')">Принимаю условия</button>
+    </div>
+  </div>
+
+  <!-- Volunteer Program Backup Modal -->
+  <div id="volunteer-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-ink text-white rounded-3xl p-6 sm:p-8 md:p-10 max-w-lg w-full shadow-2xl relative border border-white/10 max-h-[85vh] flex flex-col justify-between">
+      <button class="absolute top-4 right-4 text-white/40 hover:text-white h-8 w-8 rounded-full border border-white/10 flex items-center justify-center font-bold text-sm" onclick="closeLegalModal('volunteer-modal')" aria-label="Close modal">✕</button>
+      <div class="overflow-y-auto pr-2 mb-6 text-center">
+        <div class="w-14 h-14 rounded-full bg-oceanSoft/20 text-ember flex items-center justify-center mx-auto mb-4 text-2xl">🌱</div>
+        <h3 id="volunteer-modal-title" class="font-display font-black text-lg sm:text-xl text-sand mb-4 uppercase tracking-wide">Волонтерская программа 2026</h3>
+        <p id="volunteer-modal-desc-1" class="text-xs sm:text-sm text-white/80 leading-relaxed font-body mb-4">
+          Мечтаете пожить на берегу Тихого океана на Камчатке, помогать в развитии экологичного премиального глэмпинга и серфить каждый день?
+        </p>
+        <p id="volunteer-modal-desc-2" class="text-xs sm:text-sm text-white/60 leading-relaxed font-body">
+          Прием заявок на летний волонтерский сезон начнется совсем скоро. Мы ищем творческих администраторов, помощников по хозяйству, фотографов и любителей океана. Оставьте заявку в бронировании с пометкой в поле «Имя» (например, «Иван - Волонтер»), и мы свяжемся с вами в первую очередь!
+        </p>
+      </div>
+      <button id="volunteer-modal-close" class="w-full bg-ember hover:bg-amber-500 text-white font-display font-bold py-3.5 px-6 rounded-xl transition-all uppercase tracking-wider text-xs" onclick="closeLegalModal('volunteer-modal')">Хочу стать волонтером</button>
+    </div>
+  </div>
+
   <!-- BOOKING SUCCESS MODAL POPUP (Self-adaptive Max-Height Mobile Safe Wrapper) -->
   <div id="success-modal" class="fixed inset-0 z-50 bg-black/75 hidden items-center justify-center p-4 backdrop-blur-sm">
     <div class="bg-sand text-ink rounded-3xl p-5 sm:p-8 md:p-10 max-w-md w-full shadow-2xl relative border-2 border-oceanSoft/30 max-h-[92vh] overflow-y-auto flex flex-col justify-between">
@@ -1161,6 +1280,55 @@
       </button>
 
     </div>
+  </div>
+
+  <!-- FLOATING ACTION BUTTON (FAB) FOR MOBILE / ALL VIEWPORTS -->
+  <div id="fab-container" class="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-3.5">
+    <!-- Collapsible Menu of Contact Methods -->
+    <div id="fab-menu" class="flex flex-col items-end space-y-3 hidden opacity-0 translate-y-4 transition-all duration-300 pointer-events-none">
+
+      <!-- WhatsApp Option -->
+      <a href="https://wa.me/79638323456" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2.5 group focus:outline-none">
+        <span class="bg-ink/80 text-sand text-[11px] font-bold tracking-wider px-2.5 py-1.5 rounded-lg border border-white/10 shadow-md backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 uppercase">WhatsApp</span>
+        <div class="w-11 h-11 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-lg transition-transform duration-200 hover:scale-110 active:scale-95">
+          <svg class="w-5.5 h-5.5 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.588 2.007 14.118.98 11.5.979 6.066.979 1.64 5.35 1.636 10.781c-.001 1.702.463 3.364 1.343 4.828l-.997 3.646 3.734-.979zm11.367-7.234c-.3-.15-1.772-.875-2.046-.975-.276-.1-.476-.15-.676.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-3.037-1.514-4.704-4.646-4.855-4.906-.15-.26-.016-.4.118-.533.12-.12.276-.315.414-.475.138-.15.184-.26.276-.435.093-.175.046-.325-.024-.475s-.676-1.63-1.01-2.316c-.26-.636-.53-.545-.724-.545l-.615-.01s-.66-.08-1.25.495c-.59.575-2.25 2.2-2.25 5.362 0 3.162 2.3 6.212 2.62 6.637.32.425 4.522 6.907 10.957 9.684 1.53.662 2.724 1.056 3.658 1.353 1.538.488 2.938.419 4.043.253 1.23-.184 2.772-.1 3.572-.65.8-.55.8-1.65.55-2.1-.25-.45-.925-.725-1.225-.875z"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Telegram Option -->
+      <a href="https://t.me/halacamp" class="flex items-center space-x-2.5 group focus:outline-none">
+        <span class="bg-ink/80 text-sand text-[11px] font-bold tracking-wider px-2.5 py-1.5 rounded-lg border border-white/10 shadow-md backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 uppercase">Telegram</span>
+        <div class="w-11 h-11 rounded-full bg-sky-500 hover:bg-sky-400 text-white flex items-center justify-center shadow-lg transition-transform duration-200 hover:scale-110 active:scale-95">
+          <svg class="w-5.5 h-5.5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.24-5.54 3.65-.52.36-.97.53-1.34.52-.42-.01-1.21-.24-1.8-.43-.72-.24-1.3-.37-1.25-.78.03-.21.31-.43.86-.67 3.37-1.47 5.62-2.44 6.76-2.91 3.22-1.33 3.89-1.56 4.33-1.57.1.01.31.03.45.15.11.1.14.23.16.33.02.13.01.26 0 .28z"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Direct Call Option -->
+      <a href="tel:+79638323456" class="flex items-center space-x-2.5 group focus:outline-none">
+        <span class="bg-ink/80 text-sand text-[11px] font-bold tracking-wider px-2.5 py-1.5 rounded-lg border border-white/10 shadow-md backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 uppercase">Звонок</span>
+        <div class="w-11 h-11 rounded-full bg-ocean hover:bg-oceanSoft text-white flex items-center justify-center shadow-lg transition-transform duration-200 hover:scale-110 active:scale-95">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Main Trigger Floating Button with Exquisite Waves -->
+    <button id="fab-trigger" class="w-14 h-14 rounded-full bg-ember hover:bg-amber-500 text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 relative focus:outline-none hover:scale-105 active:scale-95 cursor-pointer" aria-label="Open support menu">
+      <!-- Pulsing Glow Ring -->
+      <span class="absolute inset-0 rounded-full bg-ember/30 animate-ping pointer-events-none"></span>
+      <!-- Toggle Icon -->
+      <svg id="fab-icon-msg" class="w-6 h-6 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+      </svg>
+      <span id="fab-icon-close" class="absolute hidden text-lg font-bold transition-all duration-300">✕</span>
+    </button>
   </div>
 
   <!-- Non-module JavaScript Interactivity -->

@@ -1,0 +1,90 @@
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:21] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:21] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:22] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:22] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:22] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:22] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:22] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:22] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:31:22] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:31:22] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:10] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:10] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 10:33:13] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 10:33:13] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 11:52:41] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:41] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:41] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:41] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:41] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:41] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:41] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 11:52:42] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:42] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:42] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:42] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:42] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:42] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:42] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:42] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:42] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:42] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:42] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:42] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /images-web/hala1/hala1%20-%20111.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /images-web/bath/Hala%20Par%20(1).jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:45] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:45] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 11:52:46] code 404, message File not found
+127.0.0.1 - - [05/Aug/2026 11:52:46] "GET /images-web/hero/111%20IMG_0398.JPG HTTP/1.1" 404 -
